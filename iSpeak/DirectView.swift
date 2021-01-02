@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 enum CommandButton: String {
     case i, we, you, my, your, our, eat, wash, go, look, think, out, stop, rice, want, more, help, it, know,drink, water, yes, no, okay
@@ -96,18 +97,31 @@ struct CommandButtonView: View {
     
     var body: some View{
         Button(action: {
+            //recieving input
             self.env.recieveInput(commandButton: button)
+            //synthesiszing speech
+            let synth = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "Hello")
+            synth.speak(utterance)
+            
         }) {
             Text(button.title)
                 .font(.system(size: 35))
                 .frame(width: self.buttonWidth(), height: 60)
-                .foregroundColor(Color.white)
-                .background(Color.green)
-                .cornerRadius(10)
-        }
+        }.buttonStyle(TypeButtonStyle())
     }
     private  func buttonWidth() -> CGFloat {
         return (UIScreen.main.bounds.width - 4 * 12) / 3
+    }
+}
+
+struct TypeButtonStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .foregroundColor(Color.white)
+            .scaleEffect(configuration.isPressed ? 1.2 : 1.0)
+            .background(configuration.isPressed ? Color.orange : Color.green)
+            .cornerRadius(10.0)
     }
 }
 
