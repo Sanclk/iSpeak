@@ -8,16 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
-        VStack{
-            Text("Please hold your phone in a comfortable distance.")
-                .multilineTextAlignment(.center)
-                .padding(.all)
-            Spacer()
+        NavigationView{
+            VStack{
+                Text("Please hold your phone in a comfortable distance.")
+                    .multilineTextAlignment(.center)
+                    .padding(.all)
+                Spacer()
+                //                CameraView()
+                NavigationLink(
+                    destination: MainView()){
+                    Text("Next")
+                        .font(.title3)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom)
+                }
+                
+            }
+            
+            
         }
     }
 }
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

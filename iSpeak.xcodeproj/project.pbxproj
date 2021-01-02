@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2750F970258CDC430030B3BC /* SynthesizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750F96F258CDC420030B3BC /* SynthesizeView.swift */; };
+		2750F973258DB0580030B3BC /* DirectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750F972258DB0580030B3BC /* DirectView.swift */; };
+		2750F977258DF08D0030B3BC /* KeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750F976258DF08D0030B3BC /* KeyBoardView.swift */; };
+		276E7FB6257248CF00801FF4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276E7FB5257248CF00801FF4 /* MainView.swift */; };
 		27B8E79A25721A930083C31D /* iSpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B8E79925721A930083C31D /* iSpeakApp.swift */; };
 		27B8E79C25721A930083C31D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B8E79B25721A930083C31D /* ContentView.swift */; };
 		27B8E79E25721A980083C31D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B8E79D25721A980083C31D /* Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2750F96F258CDC420030B3BC /* SynthesizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesizeView.swift; sourceTree = "<group>"; };
+		2750F972258DB0580030B3BC /* DirectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectView.swift; sourceTree = "<group>"; };
+		2750F976258DF08D0030B3BC /* KeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardView.swift; sourceTree = "<group>"; };
+		276E7FB5257248CF00801FF4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		27B8E79625721A930083C31D /* iSpeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B8E79925721A930083C31D /* iSpeakApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iSpeakApp.swift; sourceTree = "<group>"; };
 		27B8E79B25721A930083C31D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +68,10 @@
 				27B8E7A225721A980083C31D /* Info.plist */,
 				27B8E79F25721A980083C31D /* Preview Content */,
 				27B8E7A925721F8D0083C31D /* CameraView.swift */,
+				276E7FB5257248CF00801FF4 /* MainView.swift */,
+				2750F976258DF08D0030B3BC /* KeyBoardView.swift */,
+				2750F972258DB0580030B3BC /* DirectView.swift */,
+				2750F96F258CDC420030B3BC /* SynthesizeView.swift */,
 			);
 			path = iSpeak;
 			sourceTree = "<group>";
@@ -142,7 +154,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				27B8E7AA25721F8E0083C31D /* CameraView.swift in Sources */,
+				276E7FB6257248CF00801FF4 /* MainView.swift in Sources */,
+				2750F977258DF08D0030B3BC /* KeyBoardView.swift in Sources */,
 				27B8E79C25721A930083C31D /* ContentView.swift in Sources */,
+				2750F973258DB0580030B3BC /* DirectView.swift in Sources */,
+				2750F970258CDC430030B3BC /* SynthesizeView.swift in Sources */,
 				27B8E79A25721A930083C31D /* iSpeakApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +299,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanc.iSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -304,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanc.iSpeak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
