@@ -101,7 +101,7 @@ struct CommandButtonView: View {
             self.env.recieveInput(commandButton: button)
             //synthesiszing speech
             let synth = AVSpeechSynthesizer()
-            let utterance = AVSpeechUtterance(string: "Hello")
+            let utterance = AVSpeechUtterance(string: "Okay")
             synth.speak(utterance)
             
         }) {

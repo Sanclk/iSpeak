@@ -12,11 +12,11 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Text("Please hold your phone in a comfortable distance.")
+                Text("Please place your phone in a comfortable distance.")
                     .multilineTextAlignment(.center)
                     .padding(.all)
                 Spacer()
-                //                CameraView()
+               CameraView()
                 NavigationLink(
                     destination: MainView()){
                     Text("Next")
