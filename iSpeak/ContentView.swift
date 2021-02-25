@@ -7,16 +7,19 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     
     var body: some View {
         NavigationView{
             VStack{
-                Text("Please place your phone in a comfortable distance.")
+                Text("Please place your phone in a comfortable distance and look at the pointer below.")
                     .multilineTextAlignment(.center)
                     .padding(.all)
                 Spacer()
-               CameraView()
+//                Text("Look at here.")
+//                Spacer()
+               //CameraView()
                 NavigationLink(
                     destination: MainView()){
                     Text("Next")

@@ -120,7 +120,7 @@ struct TypeButtonStyle: ButtonStyle {
         configuration.label
             .foregroundColor(Color.white)
             .scaleEffect(configuration.isPressed ? 1.2 : 1.0)
-            .background(configuration.isPressed ? Color.orange : Color.green)
+            .background(configuration.isPressed ? Color.orange : Color.blue)
             .cornerRadius(10.0)
     }
 }

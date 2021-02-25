@@ -2,9 +2,8 @@
 //  Singleton.swift
 //  iSpeak
 //
-//  Created by Sanduni Chamika on 2021-01-21.
+//  Created by Sanduni Chamika on 2021-11-28.
 //
-
 import Foundation
 import ARKit
 import SwiftUI

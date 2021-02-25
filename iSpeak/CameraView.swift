@@ -119,7 +119,7 @@ class CameraViewController : UIViewController,ARSCNViewDelegate {
                     if seconds >= 5 && seconds < 8{
                         Singleton.sharedInstance.calibrated = true
                         DispatchQueue.global(qos: .background).async {
-                            let utterance = AVSpeechUtterance(string: "Calibration complete. Press continue")
+                            let utterance = AVSpeechUtterance(string: "Calibration complete")
                             utterance.rate = 0.5
                             let synthesizer = AVSpeechSynthesizer()
                             synthesizer.speak(utterance)
