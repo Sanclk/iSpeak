@@ -11,7 +11,7 @@ import AVFoundation
 enum CommandButton: String {
     case i, we, you, my, your, our, eat, wash, go, look, think, out, stop, rice, want, more, help, it, know,drink, water, yes, no, okay
     
-    var title: String{
+    var btnLabel: String{
         switch self{
         case .we: return "we"
         case .you: return "you"
@@ -41,18 +41,17 @@ enum CommandButton: String {
     }
 }
 
-//Environment Object
-//this the global application state
-class GlobalEnvironment: ObservableObject {
-    @Published var display = ""
-    
-    func recieveInput(commandButton: CommandButton){
-        self.display = commandButton .title
-    }
-}
-
 struct CommandView: View {
-    @EnvironmentObject var env: GlobalEnvironment
+    
+    @State var displaytext = ""
+    
+    @ObservedObject var commandViewState: CommandViewState = CommandViewState()
+    
+    
+    func recieveInput(commandBtns: CommandButton) {
+        self.displaytext = commandBtns.btnLabel
+    }
+    
     
     let buttons: [[CommandButton]] = [
         [.i, .we, .you],
@@ -72,7 +71,7 @@ struct CommandView: View {
                 
                 HStack{
                     Spacer()
-                    Text(env.display)
+                    Text("\(commandViewState.word)")
                         .font(.system(size: 45))
                 }
                 .padding()
@@ -80,7 +79,7 @@ struct CommandView: View {
                 ForEach(buttons, id: \.self){ row in
                     HStack (spacing: 12){
                         ForEach(row, id: \.self){ button in
-                            CommandButtonView(button: button)
+                            CommandButtonView(button: button).environmentObject(commandViewState)
                         }
                     }
                 }
@@ -94,19 +93,19 @@ struct CommandView: View {
 struct CommandButtonView: View {
     var button: CommandButton
     
-    @EnvironmentObject var env: GlobalEnvironment
+    @EnvironmentObject var commandViewState: CommandViewState
     
     var body: some View{
         Button(action: {
             //recieving input
-            self.env.recieveInput(commandButton: button)
+            commandViewState.appendWord(str: button.btnLabel)
             //synthesizing speech
             let synth = AVSpeechSynthesizer()
             let utterance = AVSpeechUtterance(string: "Okay")
             synth.speak(utterance)
             
         }) {
-            Text(button.title)
+            Text(button.btnLabel)
                 .font(.system(size: 35))
                 .frame(width: self.buttonWidth(), height: 60)
         }.buttonStyle(TypeButtonStyle())
@@ -116,11 +115,22 @@ struct CommandButtonView: View {
     }
 }
 
+class CommandViewState: ObservableObject{
+    
+    @Published var word = ""
+    
+    
+    func appendWord(str: String) {
+        word += str
+    }
+    
+}
+
 struct TypeButtonStyle: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             .foregroundColor(Color.white)
-            .scaleEffect(configuration.isPressed ? 1.2 : 1.0)
+            .scaleEffect(configuration.isPressed ? 1.5 : 1.0)
             .background(configuration.isPressed ? Color.orange : Color.blue)
             .cornerRadius(10.0)
     }

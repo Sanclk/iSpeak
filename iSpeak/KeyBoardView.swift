@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 enum KeyButtons : String{
     case one,two,three,four,five,six,seven,eight,nine,zero
@@ -26,7 +27,7 @@ enum KeyButtons : String{
         }
     }
     
-    var btnlabel: String{
+    var title: String{
         switch self{
         case .one: return "1"
         case .two: return "2"
@@ -72,6 +73,11 @@ enum KeyButtons : String{
         
     }}
 
+//environment object
+// This is the global application state
+//class KeyGlobalEnvironment: ObservableObject {
+//    @Published var message = ""
+//}
 
 struct KeyBoardView: View {
     
@@ -81,7 +87,7 @@ struct KeyBoardView: View {
     
     
     func recieveInput(letterKeys: KeyButtons) {
-        self.display = letterKeys.btnlabel
+        self.display = letterKeys.title
     }
     
     let keys : [[KeyButtons]] = [
@@ -127,15 +133,17 @@ struct KeyBoardView: View {
 struct KeysView: View {
     
     var btn: KeyButtons
-    
+//    @EnvironmentObject var environment: GlobalEnvironment
+//
     @EnvironmentObject var keyViewState: KeyViewState
     
     var body: some View {
         Button(action: {
-            keyViewState.appendLetter(str: btn.btnlabel)
-            
+            keyViewState.appendLetter(str: btn.title)
+        
+//            self.environment.recieveInput(letterKeys: btn)
         }) {
-            Text(btn.btnlabel)
+            Text(btn.title)
                 .font(.system(size: 35))
                 .frame(width:self.KeyWidth(button: btn), height: self.KeyHeight(button: btn))
                 .foregroundColor(.white)
@@ -166,7 +174,7 @@ class KeyViewState: ObservableObject{
 
 struct KeyBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyBoardView().environmentObject(GlobalEnvironment())
+        KeyBoardView()
     }
 }
 
