@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     
     var body: some View {
@@ -19,6 +18,10 @@ struct ContentView: View {
                 Spacer()
 //                Text("Look at here.")
 //                Spacer()
+                Circle()
+                    .fill(Color.blue)
+                    .frame(width: 10, height: 10, alignment: .center)
+                Spacer()
                //CameraView()
                 NavigationLink(
                     destination: MainView()){
@@ -33,7 +36,16 @@ struct ContentView: View {
             
         }
     }
+    
+    func alignVCalibrator()-> CGFloat{
+        return UIScreen.main.bounds.maxY/2
+    }
+    
+    func alignHCalibrator()-> CGFloat{
+        return UIScreen.main.bounds.maxX/2
+    }
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

@@ -7,257 +7,121 @@
 
 import SwiftUI
 
-struct KeyBoardView: View {
-    @State var message: String = ""
+enum KeyButtons : String{
+    case one,two,three,four,five,six,seven,eight,nine,zero
+    case a,e,i,o,u
+    case t,n,s,h,r,d,l,c,m,w,f,g,y,p,b,v,k,j,x,q,z
+    case space,stop,del,say
     
-    var body: some View {
-        VStack{
-            GeometryReader { geometry in
-                HStack(spacing: 1.0) {
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("1")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("2")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("3")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("4")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("5")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                }
-            }
-            GeometryReader { geometry in
-                HStack(spacing: 1.0) {
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("6")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("7")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("8")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("9")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                    Button(action: {
-                        //TODO clicked1
-                    }, label: {
-                        Text ("0")
-                            .fontWeight(.semibold)
-                            .font(.largeTitle)
-                            .padding()
-                            .background(Color.green)
-                            .cornerRadius(5)
-                            .foregroundColor(.white)
-                            .frame(width: geometry.size.width / 5, height: 50)
-                    })
-                }
-                
-                GeometryReader { geometry in
-                    HStack(spacing: 1.0) {
-                        Button(action: {
-                            //TODO clicked1
-                        }, label: {
-                            Text ("a")
-                                .fontWeight(.semibold)
-                                .font(.largeTitle)
-                                .padding()
-                                .background(Color.green)
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                                .frame(width: geometry.size.width / 5, height: 50)
-                        })
-                        Button(action: {
-                            //TODO clicked1
-                        }, label: {
-                            Text ("e")
-                                .fontWeight(.semibold)
-                                .font(.largeTitle)
-                                .padding()
-                                .background(Color.green)
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                                .frame(width: geometry.size.width / 5, height: 50)
-                        })
-                        Button(action: {
-                            //TODO clicked1
-                        }, label: {
-                            Text ("i")
-                                .fontWeight(.semibold)
-                                .font(.largeTitle)
-                                .padding()
-                                .background(Color.green)
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                                .frame(width: geometry.size.width / 5, height: 50)
-                        })
-                        Button(action: {
-                            //TODO clicked1
-                        }, label: {
-                            Text ("o")
-                                .fontWeight(.semibold)
-                                .font(.largeTitle)
-                                .padding()
-                                .background(Color.green)
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                                .frame(width: geometry.size.width / 5, height: 50)
-                        })
-                        Button(action: {
-                            //TODO clicked1
-                        }, label: {
-                            Text ("u")
-                                .fontWeight(.semibold)
-                                .font(.largeTitle)
-                                .padding()
-                                .background(Color.green)
-                                .cornerRadius(5)
-                                .foregroundColor(.white)
-                                .frame(width: geometry.size.width / 5, height: 50)
-                        })
-                        
-                    }
-                }}
-            TextEditor(text: $message).modifier(ClearButton(text: $message))
-                //            TextField("Enter your message...", text: $message).modifier(ClearButton(text: $message))
-                .font(.system(size: 30))
-                .padding()
-            
-            Button(action: {
-                SynthesizeView()
-            }, label: {
-                HStack {
-                    Image (systemName: "speaker.wave.2.fill")
-                        .font(.largeTitle)
-                    Text ("Speak")
-                        .fontWeight(.semibold)
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                    
-                }
-                .padding()
-                .background(Color.blue)
-                .cornerRadius(20)
-                .foregroundColor(.white)
-                .shadow(color: Color.gray, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 5, y: 3 )
-            })
+    var keyBackground: Color {
+        switch self{
+        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
+            return Color(.darkGray)
+        case .a, .e, .i, .o, .u:
+            return Color(.systemGray)
+        case .space, .stop, .del, .say:
+            return Color(.systemOrange)
+        default:
+            return Color(.systemBlue)
+        }
+    }
+    
+    var title: String{
+        switch self{
+        case .one: return "0"
+        case .two: return "2"
+        case .three: return "3"
+        case .four: return "4"
+        case .five: return "5"
+        case .six: return "6"
+        case .seven: return "7"
+        case .eight: return "8"
+        case .nine: return "9"
+        case .zero: return "0"
+        case .a: return "A"
+        case .e: return "E"
+        case .i: return "I"
+        case .o: return "O"
+        case .u: return "U"
+        case .t: return "T"
+        case .n: return "N"
+        case .s: return "S"
+        case .h: return "H"
+        case .r: return "R"
+        case .d: return "D"
+        case .l: return "L"
+        case .c: return "C"
+        case .m: return "M"
+        case .w: return "W"
+        case .f: return "F"
+        case .g: return "G"
+        case .y: return "Y"
+        case .p: return "P"
+        case .b: return "B"
+        case .v: return "V"
+        case .k: return "K"
+        case .j: return "J"
+        case .x: return "X"
+        case .q: return "Q"
+        case .z: return "Z"
+        case .space: return "|_|"
+        case .stop: return "."
+        case .del: return "DEL"
+        default: return "SAY"
         }
         
-    }
-}
+    }}
 
-struct ClearButton: ViewModifier
-{
-    @Binding var text: String
+//environment object
+struct KeyBoardView: View {
     
-    public func body(content: Content) -> some View
-    {
-        ZStack(alignment: .trailing)
-        {
-            content
+    let keys : [[KeyButtons]] = [
+        [ .one, .two, .three, .four, .five],
+        [.six, .seven, .eight, .nine, .zero],
+        [ .a, .e, .i, .o, .u],
+        [.t, .n, .s, .h, .r],
+        [ .d, .l, .c, .m, .w],
+        [.f, .g, .y, .p, .b],
+        [.v, .k, .j, .x, .q],
+        [.z, .space, .stop, .del, .say]
+    ]
+    
+    var body: some View {
+        
+        ZStack(alignment: .bottom){
+            //setting the background color
+            Color.white.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            if !text.isEmpty
-            {
-                Button(action:
-                        {
-                            self.text = ""
-                        })
-                {
-                    Image(systemName: "delete.left")
-                        .padding()
-                        .font(.largeTitle)
-                        .foregroundColor(.gray)
-                        .shadow(color: Color.gray, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: 5, y: 3 )
+            VStack (spacing: 5){
+                HStack{
+                    //Display text
+                    Spacer()
+                    Text("Hello")
+                        .foregroundColor(.black)
+                        .font(.system(size: 32))
+                }.padding()
+                
+                ForEach(keys, id: \.self){ row in
+                    HStack (spacing: 5){
+                        ForEach(row, id: \.self){ button in
+                            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                                Text(button.title)
+                                    .font(.system(size: 35))
+                                    .frame(width:self.KeyWidth(button: button), height: self.KeyWidth(button: button))
+                                    .foregroundColor(.white)
+                                    .background(button.keyBackground)
+                                    .cornerRadius(self.KeyWidth(button: button))
+                            }
+                        }
+                    }
                 }
-                .padding(.trailing, 8)
-            }
-        }
+                Spacer()
+            }.padding(.bottom)
+        }.padding(.bottom)
+    }
+    
+    private func KeyWidth(button: KeyButtons) -> CGFloat{
+        return (UIScreen.main.bounds.width - 6 * 5) / 5
     }
 }
 
@@ -266,3 +130,4 @@ struct KeyBoardView_Previews: PreviewProvider {
         KeyBoardView()
     }
 }
+
