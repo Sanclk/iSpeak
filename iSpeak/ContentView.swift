@@ -16,8 +16,7 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding(.all)
                 Spacer()
-//                Text("Look at here.")
-//                Spacer()
+                // Calibration pointer
                 Circle()
                     .fill(Color.blue)
                     .frame(width: 10, height: 10, alignment: .center)
@@ -37,13 +36,6 @@ struct ContentView: View {
         }
     }
     
-    func alignVCalibrator()-> CGFloat{
-        return UIScreen.main.bounds.maxY/2
-    }
-    
-    func alignHCalibrator()-> CGFloat{
-        return UIScreen.main.bounds.maxX/2
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {

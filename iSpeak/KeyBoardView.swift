@@ -16,9 +16,9 @@ enum KeyButtons : String{
     var keyBackground: Color {
         switch self{
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
-            return Color(.darkGray)
-        case .a, .e, .i, .o, .u:
             return Color(.systemGray)
+        case .a, .e, .i, .o, .u:
+            return Color(.darkGray)
         case .space, .stop, .del, .say:
             return Color(.systemOrange)
         default:
@@ -26,7 +26,7 @@ enum KeyButtons : String{
         }
     }
     
-    var title: String{
+    var btnlabel: String{
         switch self{
         case .one: return "1"
         case .two: return "2"
@@ -72,16 +72,17 @@ enum KeyButtons : String{
         
     }}
 
-//environment object
-// This is the global application state
-//class KeyGlobalEnvironment: ObservableObject {
-//    @Published var message = ""
-//}
 
 struct KeyBoardView: View {
     
-//    @EnvironmentObject var environ = KeyGlobalEnvironment
-    @State var letter = ""
+    @State var display = ""
+    
+    @ObservedObject var keyViewState: KeyViewState = KeyViewState()
+    
+    
+    func recieveInput(letterKeys: KeyButtons) {
+        self.display = letterKeys.btnlabel
+    }
     
     let keys : [[KeyButtons]] = [
         [ .one, .two, .three, .four, .five],
@@ -96,7 +97,6 @@ struct KeyBoardView: View {
     
     var body: some View {
         
-        
         ZStack(alignment: .bottom){
             //setting the background color
             Color.white.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -105,7 +105,7 @@ struct KeyBoardView: View {
                 HStack{
                     //Display text
                     Spacer()
-                    Text("Hello")
+                    Text("\(keyViewState.letter)")
                         .foregroundColor(.black)
                         .font(.system(size: 32))
                 }.padding()
@@ -113,23 +113,35 @@ struct KeyBoardView: View {
                 ForEach(keys, id: \.self){ row in
                     HStack (spacing: 5){
                         ForEach(row, id: \.self){ button in
-                            Button(action: {
-                                self.letter = "Hello"
-                                
-                            }) {
-                                Text(button.title)
-                                    .font(.system(size: 35))
-                                    .frame(width:self.KeyWidth(button: button), height: self.KeyHeight(button: button))
-                                    .foregroundColor(.white)
-                                    .background(button.keyBackground)
-                                    .cornerRadius(self.KeyWidth(button: button))
-                            }
+                            KeysView(btn: button).environmentObject(keyViewState)
                         }
                     }
                 }
                 Spacer()
             }.padding(.bottom)
         }.padding(.bottom)
+    }
+    
+}
+
+struct KeysView: View {
+    
+    var btn: KeyButtons
+    
+    @EnvironmentObject var keyViewState: KeyViewState
+    
+    var body: some View {
+        Button(action: {
+            keyViewState.appendLetter(str: btn.btnlabel)
+            
+        }) {
+            Text(btn.btnlabel)
+                .font(.system(size: 35))
+                .frame(width:self.KeyWidth(button: btn), height: self.KeyHeight(button: btn))
+                .foregroundColor(.white)
+                .background(btn.keyBackground)
+                .cornerRadius(self.KeyWidth(button: btn))
+        }
     }
     
     private func KeyWidth(button: KeyButtons) -> CGFloat{
@@ -139,6 +151,17 @@ struct KeyBoardView: View {
     private func KeyHeight(button: KeyButtons) -> CGFloat{
         return (UIScreen.main.bounds.height - 260 - 9 * 3) / 8
     }
+}
+
+class KeyViewState: ObservableObject{
+    
+    @Published var letter = ""
+    
+    
+    func appendLetter(str: String) {
+        letter += str
+    }
+    
 }
 
 struct KeyBoardView_Previews: PreviewProvider {
