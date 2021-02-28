@@ -73,12 +73,6 @@ enum KeyButtons : String{
         
     }}
 
-//environment object
-// This is the global application state
-//class KeyGlobalEnvironment: ObservableObject {
-//    @Published var message = ""
-//}
-
 struct KeyBoardView: View {
     
     @State var display = ""
@@ -133,15 +127,18 @@ struct KeyBoardView: View {
 struct KeysView: View {
     
     var btn: KeyButtons
-//    @EnvironmentObject var environment: GlobalEnvironment
-//
+
     @EnvironmentObject var keyViewState: KeyViewState
     
     var body: some View {
         Button(action: {
             keyViewState.appendLetter(str: btn.title)
         
-//            self.environment.recieveInput(letterKeys: btn)
+            //synthesizing speech
+            let synth = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string: "\(keyViewState.letter)")
+            synth.speak(utterance)
+            
         }) {
             Text(btn.title)
                 .font(.system(size: 35))

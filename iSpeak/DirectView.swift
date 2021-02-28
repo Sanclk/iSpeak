@@ -71,7 +71,7 @@ struct CommandView: View {
                 
                 HStack{
                     Spacer()
-                    Text("\(commandViewState.word)")
+                    Text("\(commandViewState.sentence)")
                         .font(.system(size: 45))
                 }
                 .padding()
@@ -101,8 +101,11 @@ struct CommandButtonView: View {
             commandViewState.appendWord(str: button.btnLabel)
             //synthesizing speech
             let synth = AVSpeechSynthesizer()
-            let utterance = AVSpeechUtterance(string: "Okay")
+            let utterance = AVSpeechUtterance(string: "\(commandViewState.sentence)")
             synth.speak(utterance)
+            
+            //clear the text
+               
             
         }) {
             Text(button.btnLabel)
@@ -117,11 +120,11 @@ struct CommandButtonView: View {
 
 class CommandViewState: ObservableObject{
     
-    @Published var word = ""
+    @Published var sentence = ""
     
     
     func appendWord(str: String) {
-        word += str
+        sentence += str
     }
     
 }
