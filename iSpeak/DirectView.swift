@@ -42,6 +42,7 @@ enum CommandButton: String {
 }
 
 //Environment Object
+//this the global application state
 class GlobalEnvironment: ObservableObject {
     @Published var display = ""
     

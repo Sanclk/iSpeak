@@ -28,7 +28,7 @@ enum KeyButtons : String{
     
     var title: String{
         switch self{
-        case .one: return "0"
+        case .one: return "1"
         case .two: return "2"
         case .three: return "3"
         case .four: return "4"
@@ -73,7 +73,15 @@ enum KeyButtons : String{
     }}
 
 //environment object
+// This is the global application state
+//class KeyGlobalEnvironment: ObservableObject {
+//    @Published var message = ""
+//}
+
 struct KeyBoardView: View {
+    
+//    @EnvironmentObject var environ = KeyGlobalEnvironment
+    @State var letter = ""
     
     let keys : [[KeyButtons]] = [
         [ .one, .two, .three, .four, .five],
@@ -88,11 +96,12 @@ struct KeyBoardView: View {
     
     var body: some View {
         
+        
         ZStack(alignment: .bottom){
             //setting the background color
             Color.white.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            VStack (spacing: 5){
+            VStack (spacing: 3){
                 HStack{
                     //Display text
                     Spacer()
@@ -104,10 +113,13 @@ struct KeyBoardView: View {
                 ForEach(keys, id: \.self){ row in
                     HStack (spacing: 5){
                         ForEach(row, id: \.self){ button in
-                            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
+                            Button(action: {
+                                self.letter = "Hello"
+                                
+                            }) {
                                 Text(button.title)
                                     .font(.system(size: 35))
-                                    .frame(width:self.KeyWidth(button: button), height: self.KeyWidth(button: button))
+                                    .frame(width:self.KeyWidth(button: button), height: self.KeyHeight(button: button))
                                     .foregroundColor(.white)
                                     .background(button.keyBackground)
                                     .cornerRadius(self.KeyWidth(button: button))
@@ -123,11 +135,15 @@ struct KeyBoardView: View {
     private func KeyWidth(button: KeyButtons) -> CGFloat{
         return (UIScreen.main.bounds.width - 6 * 5) / 5
     }
+    
+    private func KeyHeight(button: KeyButtons) -> CGFloat{
+        return (UIScreen.main.bounds.height - 260 - 9 * 3) / 8
+    }
 }
 
 struct KeyBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyBoardView()
+        KeyBoardView().environmentObject(GlobalEnvironment())
     }
 }
 
