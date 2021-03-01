@@ -95,7 +95,7 @@ class CameraViewController : UIViewController,ARSCNViewDelegate {
         Singleton.sharedInstance.eyeLookAtPointYAxis = faceAnchor.lookAtPoint.y
 
         if Singleton.sharedInstance.calibrated == false{
-            if ((Singleton.sharedInstance.eyeLookAtPointXAxis - oldPointX) > 0.2 || (Singleton.sharedInstance.eyeLookAtPointXAxis - oldPointX) < -0.2 || (Singleton.sharedInstance.eyeLookAtPointYAxis - oldPointY) < -0.2 || (Singleton.sharedInstance.eyeLookAtPointYAxis - oldPointY) < -0.2){
+            if ((Singleton.sharedInstance.eyeLookAtPointXAxis - oldPointX) > 0.2 || (Singleton.sharedInstance.eyeLookAtPointXAxis - oldPointX) < -0.2 || (Singleton.sharedInstance.eyeLookAtPointYAxis - oldPointY) > 0.2 || (Singleton.sharedInstance.eyeLookAtPointYAxis - oldPointY) < -0.2){
 
                 Singleton.sharedInstance.calibrated = false
                 Singleton.sharedInstance.timeStamp = NSDate().timeIntervalSince1970

@@ -10,6 +10,7 @@
 		2750F970258CDC430030B3BC /* SynthesizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750F96F258CDC420030B3BC /* SynthesizeView.swift */; };
 		2750F973258DB0580030B3BC /* DirectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750F972258DB0580030B3BC /* DirectView.swift */; };
 		2750F977258DF08D0030B3BC /* KeyBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750F976258DF08D0030B3BC /* KeyBoardView.swift */; };
+		2769B8AA25EC7968009D400A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769B8A925EC7968009D400A /* SettingsView.swift */; };
 		276E7FB6257248CF00801FF4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276E7FB5257248CF00801FF4 /* MainView.swift */; };
 		279C7FA125B9497E0078F26B /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279C7FA025B9497E0078F26B /* Singleton.swift */; };
 		27B8E79A25721A930083C31D /* iSpeakApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B8E79925721A930083C31D /* iSpeakApp.swift */; };
@@ -23,6 +24,7 @@
 		2750F96F258CDC420030B3BC /* SynthesizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesizeView.swift; sourceTree = "<group>"; };
 		2750F972258DB0580030B3BC /* DirectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectView.swift; sourceTree = "<group>"; };
 		2750F976258DF08D0030B3BC /* KeyBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyBoardView.swift; sourceTree = "<group>"; };
+		2769B8A925EC7968009D400A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		276E7FB5257248CF00801FF4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		279C7FA025B9497E0078F26B /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		27B8E79625721A930083C31D /* iSpeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSpeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,7 @@
 				27B8E79F25721A980083C31D /* Preview Content */,
 				27B8E7A925721F8D0083C31D /* CameraView.swift */,
 				276E7FB5257248CF00801FF4 /* MainView.swift */,
+				2769B8A925EC7968009D400A /* SettingsView.swift */,
 				2750F976258DF08D0030B3BC /* KeyBoardView.swift */,
 				2750F972258DB0580030B3BC /* DirectView.swift */,
 				2750F96F258CDC420030B3BC /* SynthesizeView.swift */,
@@ -159,6 +162,7 @@
 				27B8E7AA25721F8E0083C31D /* CameraView.swift in Sources */,
 				279C7FA125B9497E0078F26B /* Singleton.swift in Sources */,
 				276E7FB6257248CF00801FF4 /* MainView.swift in Sources */,
+				2769B8AA25EC7968009D400A /* SettingsView.swift in Sources */,
 				2750F977258DF08D0030B3BC /* KeyBoardView.swift in Sources */,
 				27B8E79C25721A930083C31D /* ContentView.swift in Sources */,
 				2750F973258DB0580030B3BC /* DirectView.swift in Sources */,
