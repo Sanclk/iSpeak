@@ -35,7 +35,6 @@ class CameraViewController : UIViewController,ARSCNViewDelegate {
         self.view = ARSCNView(frame: .zero)
     }
 
-
     let configuration = ARKit.ARFaceTrackingConfiguration()
 
     override func viewDidLoad() {
@@ -86,26 +85,32 @@ class CameraViewController : UIViewController,ARSCNViewDelegate {
               let faceAnchor = anchor as? ARFaceAnchor
         else { return }
 
-
-        //Use the gaze position, Face position, leftEyeTransform and RightEye transform as a callibration point. And make log when the tracking is off the feather value
-        let oldPointX = Singleton.sharedInstance.eyeLookAtPointXAxis
-        let oldPointY = Singleton.sharedInstance.eyeLookAtPointXAxis
-        let oldTime = Singleton.sharedInstance.timeStamp
+        //Use the gaze position, Face position, leftEye Deviation and RightEye deviation as a callibration point. And make log when the tracking is off the feather value
+        let previousPointX = Singleton.sharedInstance.eyeLookAtPointXAxis
+        let previousPointY = Singleton.sharedInstance.eyeLookAtPointXAxis
+        let previousTime = Singleton.sharedInstance.timeStamp
+        // Calibrated Gaze Center
+//        let centerPointX = Singleton.
+//        let centerPointY = Singleton.
+        
         Singleton.sharedInstance.eyeLookAtPointXAxis = faceAnchor.lookAtPoint.x
         Singleton.sharedInstance.eyeLookAtPointYAxis = faceAnchor.lookAtPoint.y
 
         if Singleton.sharedInstance.calibrated == false{
-            if ((Singleton.sharedInstance.eyeLookAtPointXAxis - oldPointX) > 0.2 || (Singleton.sharedInstance.eyeLookAtPointXAxis - oldPointX) < -0.2 || (Singleton.sharedInstance.eyeLookAtPointYAxis - oldPointY) > 0.2 || (Singleton.sharedInstance.eyeLookAtPointYAxis - oldPointY) < -0.2){
+            if ((Singleton.sharedInstance.eyeLookAtPointXAxis - previousPointX) > 0.1 || (Singleton.sharedInstance.eyeLookAtPointXAxis - previousPointX) < -0.1 || (Singleton.sharedInstance.eyeLookAtPointYAxis - previousPointY) > 0.1 || (Singleton.sharedInstance.eyeLookAtPointYAxis - previousPointY) < -0.1){
+                
+//                let deviationX = centerPointX - Singleton.sharedInstance.eyeLookAtPointXAxis
+//                let deviationY = centerPointY - Singleton.sharedInstance.eyeLookAtPointYAxis
 
                 Singleton.sharedInstance.calibrated = false
                 Singleton.sharedInstance.timeStamp = NSDate().timeIntervalSince1970
                 NSLog(Singleton.sharedInstance.eyeLookAtPointXAxis.description + " Look at point")
 
-                NSLog(oldPointX.description + " Old point")
-                NSLog("Sum "+(Singleton.sharedInstance.eyeLookAtPointXAxis - oldPointX).description)
+                NSLog(previousPointX.description + " Old point")
+                NSLog("Sum "+(Singleton.sharedInstance.eyeLookAtPointXAxis - previousPointX).description)
 
             }else{
-                let oldTimeNSDate = NSDate(timeIntervalSince1970: oldTime)
+                let oldTimeNSDate = NSDate(timeIntervalSince1970: previousTime)
 
                 let secs = NSDate().timeIntervalSince(oldTimeNSDate as Date)
 
@@ -116,10 +121,10 @@ class CameraViewController : UIViewController,ARSCNViewDelegate {
                 NSLog("Time gap " + String(seconds))
                 if Singleton.sharedInstance.calibrated == false{
 
-                    if seconds >= 5 && seconds < 8{
+                    if seconds >= 3 && seconds < 5{
                         Singleton.sharedInstance.calibrated = true
                         DispatchQueue.global(qos: .background).async {
-                            let utterance = AVSpeechUtterance(string: "Calibration complete")
+                            let utterance = AVSpeechUtterance(string: "Calibration complete. Thank you")
                             utterance.rate = 0.5
                             let synthesizer = AVSpeechSynthesizer()
                             synthesizer.speak(utterance)
@@ -128,7 +133,7 @@ class CameraViewController : UIViewController,ARSCNViewDelegate {
                         Singleton.sharedInstance.faceAnchorCallibratedPoints = node
 
                     }
-                    if seconds > 8 {
+                    if seconds > 5 {
                         Singleton.sharedInstance.calibrated = false
                         Singleton.sharedInstance.timeStamp = NSDate().timeIntervalSince1970
                     }
