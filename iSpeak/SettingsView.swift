@@ -23,6 +23,7 @@ struct SettingsView: View {
             Spacer()
             Button(action: {
                 //navigate to the calibration
+//                ContentView()
             }) {
                 Text("Recalibrate")
                     .font(.system(size: 35))
@@ -36,7 +37,9 @@ struct SettingsView: View {
             Spacer()
             //version and link
             Text("Version 1.0")
+                .font(.system(size: 18))
             Link("https://github.com/Sanclk/iSpeak", destination: URL(string: "https://github.com/Sanclk/iSpeak")!)
+                .font(.system(size: 12))
         }.padding()
     }
 }
